@@ -25,12 +25,10 @@ class ProductPage(BasePage):
             book_title = self.browser.find_element(*ProductPageLocators.BOOK_TITLE).text
             if book_title != self.browser.find_element(*ProductPageLocators.BOOK_ADDED_TITLE_ALERT).text:
                 msg += "Titles"
-                print(msg)
             book_price = self.browser.find_element(*ProductPageLocators.BOOK_PRICE).text
             if book_price != self.browser.find_element(*ProductPageLocators.BOOK_ADDED_PRICE_ALERT).text:
                 if msg == "":
                     msg += "Prices"
-                    print(msg)
                 else:
                     msg += " and Prices"
             if msg != "":
@@ -40,7 +38,6 @@ class ProductPage(BasePage):
         except NoSuchElementException:
             return False
         except Exception:
-            print(msg)
             return False
 
 
