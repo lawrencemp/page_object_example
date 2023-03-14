@@ -19,7 +19,7 @@ class ProductPageLocators():
     BOOK_TITLE = (By.XPATH, '//div[contains(@class,"product_main")]/h1')
     BOOK_PRICE = (By.XPATH, '//p[@class="price_color"]')
     ADD_TO_BASKET_BUTTON = (By.XPATH, '//form[@id="add_to_basket_form"]/button')
-    BOOK_ADDED_TITLE_ALERT = (By.XPATH, '//div[@id="messages"]/strong')
-    BOOK_ADDED_PRICE_ALERT = (By.XPATH, '//div[@id="messages"]/p/strong')
+    BOOK_ADDED_TITLE_ALERT = (By.XPATH, '//div[@id="messages"]//strong')
+    BOOK_ADDED_PRICE_ALERT = (By.XPATH, '//div[@id="messages"]//p/strong')
 
 
