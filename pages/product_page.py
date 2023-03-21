@@ -11,7 +11,7 @@ class ProductPage(BasePage):
         assert self.check_alerts_after_adding(), "Title or price is not the same"
 
     def add_book_to_basket(self):
-        self.browser.find_element(*ProductPageLocators.ADD_TO_BASKET_BUTTON).click()
+        self.get_element(*ProductPageLocators.ADD_TO_BASKET_BUTTON).click()
 
     def check_access_elements(self):
         condition = self.is_element_present(*ProductPageLocators.BOOK_TITLE) \
@@ -22,11 +22,11 @@ class ProductPage(BasePage):
     def check_alerts_after_adding(self):
         try:
             msg = ""
-            book_title = self.browser.find_element(*ProductPageLocators.BOOK_TITLE).text
-            if book_title != self.browser.find_element(*ProductPageLocators.BOOK_ADDED_TITLE_ALERT).text:
+            book_title = self.get_element(*ProductPageLocators.BOOK_TITLE).text
+            if book_title != self.get_element(*ProductPageLocators.BOOK_ADDED_TITLE_ALERT).text:
                 msg += "Titles"
-            book_price = self.browser.find_element(*ProductPageLocators.BOOK_PRICE).text
-            if book_price != self.browser.find_element(*ProductPageLocators.BOOK_ADDED_PRICE_ALERT).text:
+            book_price = self.get_element(*ProductPageLocators.BOOK_PRICE).text
+            if book_price != self.get_element(*ProductPageLocators.BOOK_ADDED_PRICE_ALERT).text:
                 if msg == "":
                     msg += "Prices"
                 else:
@@ -39,6 +39,10 @@ class ProductPage(BasePage):
             return False
         except Exception:
             return False
+
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.BOOK_ADDED_TITLE_ALERT), \
+            "Success message is presented, but should not be"
 
 
 
