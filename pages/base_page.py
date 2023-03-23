@@ -17,6 +17,10 @@ class BasePage:
         login_link = self.get_element(*BasePageLocators.LOGIN_LINK)
         login_link.click()
 
+    def go_to_basket(self):
+        basket_link = self.get_element(*BasePageLocators.BASKET_LINK)
+        basket_link.click()
+
     def should_be_login_link(self):
         assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "No login link"
 
