@@ -12,7 +12,7 @@ class BasketPage(BasePage):
     def should_be_empty(self):
         assert self.is_element_present(*BasketPageLocators.EMPTY_BASKET_MESSAGE) * \
             self.is_not_element_present(*BasketPageLocators.PRODUCTS_SUMMARY_FORM), \
-        "Basket is not empty but shoulb be"
+        "Basket is not empty but should be"
 
     def should_have_products(self):
         assert self.is_element_present(*BasketPageLocators.PRODUCTS_SUMMARY_FORM) * \

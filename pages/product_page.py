@@ -48,5 +48,5 @@ class ProductPage(BasePage):
             "Success message is presented, but should not be"
 
     def success_message_should_disappear(self):
-        assert self.is_disappeared(*ProductPageLocators.BOOK_ADDED_TITLE_ALERT, timeout=10), \
+        assert self.is_disappeared(*ProductPageLocators.BOOK_ADDED_TITLE_ALERT), \
             "Success message is presented, but should disappear"
