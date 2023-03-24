@@ -7,11 +7,14 @@ class ProductPage(BasePage):
     def check_adding_to_basket(self):
         self.check_access_elements()
         self.add_book_to_basket()
-        self.solve_quiz_and_get_code()
         assert self.check_alerts_after_adding(), "Title or price is not the same"
 
     def add_book_to_basket(self):
-        self.get_element(*ProductPageLocators.ADD_TO_BASKET_BUTTON).click()
+        if self.browser.current_url.__contains__('promo='):
+            self.get_element(*ProductPageLocators.ADD_TO_BASKET_BUTTON).click()
+            self.solve_quiz_and_get_code()
+        else:
+            self.get_element(*ProductPageLocators.ADD_TO_BASKET_BUTTON).click()
 
     def check_access_elements(self):
         condition = self.is_element_present(*ProductPageLocators.BOOK_TITLE) \

@@ -24,3 +24,10 @@ class LoginPage(BasePage):
                               * self.is_element_present(*LoginPageLocators.REGISTER_EMAIL_FORM) \
                               * self.is_element_present(*LoginPageLocators.REGISTER_SUBMIT_BUTTON)
         assert elements_is_present, "Not all elements of register form are present"
+
+    def register_new_user(self, email, password):
+        self.get_element(*LoginPageLocators.REGISTER_EMAIL_FORM).send_keys(email)
+        self.get_element(*LoginPageLocators.REGISTER_PASS1_FORM).send_keys(password)
+        self.get_element(*LoginPageLocators.REGISTER_PASS2_FORM).send_keys(password)
+        self.get_element(*LoginPageLocators.REGISTER_SUBMIT_BUTTON).click()
+

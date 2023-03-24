@@ -5,6 +5,7 @@ class BasePageLocators():
     LOGIN_LINK = (By.XPATH, '//a[@id="login_link"]')
     LOGIN_LINK_INVALID = (By.XPATH, '//a[@id="login_link_inc"]')
     BASKET_LINK = (By.XPATH, '//a[contains(@href, "/basket/")]')
+    USER_ICON = (By.XPATH, '//i[@class="icon-user"]')
 
 
 class MainPageLocators():
